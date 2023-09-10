@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "config": {
+      "concat": {
+        "spacing": 30
+      },
+      "background": null
+    },
+    "resolve": {
+      "scale": {
+        "color": "independent",
+        "opacity": "independent"
+      },
+      "legend": {
+        "color": "independent",
+        "opacity": "independent"
+      }
+    },
+    "data": {
+      "url": "",
+      "format": {
+        "type": "topojson",
+        "feature": ""
+      }
+    },
+    "transform": [{
+      "lookup": "",
+      "from": {
+        "data": {
+          "url": ""
+        },
+        "key": "",
+        "fields": []
+      }
+    }],
+    "columns": 1,
+    "concat": []
+  }

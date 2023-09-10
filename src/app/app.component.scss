@@ -1,0 +1,245 @@
+// If navbar absent 
+::ng-deep .h-full {
+    height: calc(100vh) !important;
+}
+
+::ng-deep .display-inline-block {
+    display: inline-block !important;
+}
+
+::ng-deep .display-inline {
+    display: inline !important;
+}
+
+::ng-deep .overflow {
+    overflow: auto !important;
+}
+
+::ng-deep .overflow-x {
+    overflow-x: auto !important;
+}
+
+::ng-deep .overflow-y {
+    overflow-y: auto !important;
+}
+
+::ng-deep .nowrap {
+    white-space: nowrap !important;
+}
+
+::ng-deep .float-left {
+    float: left !important;
+}
+
+::ng-deep .float-right {
+    float: right !important;
+}
+
+::ng-deep .cursor-pointer {
+    cursor: pointer;
+}
+
+::ng-deep .cursor-move {
+    cursor: move;
+}
+
+/*
+    Spacings. Use these instead of <br/>
+    */
+
+::ng-deep .vspace-lg {
+    margin-top: 24px;
+}
+
+::ng-deep .vspace-md {
+    margin-top: 16px;
+}
+
+::ng-deep .vspace-sm {
+    margin-top: 8x;
+}
+
+
+/*
+    Margins.
+*/
+
+::ng-deep .mb-xs {
+    margin-bottom: 4px;
+}
+
+::ng-deep .mt-xs {
+    margin-top: 4px;
+}
+
+::ng-deep .ml-xs {
+    margin-left: 4px;
+}
+
+::ng-deep .mr-xs {
+    margin-right: 4px;
+}
+
+::ng-deep .mb-sm {
+    margin-bottom: 8px;
+}
+
+::ng-deep .mt-sm {
+    margin-top: 8px;
+}
+
+::ng-deep .ml-sm {
+    margin-left: 8px;
+}
+
+::ng-deep .mr-sm {
+    margin-right: 8px;
+}
+
+::ng-deep .mb-md {
+    margin-bottom: 16px !important;
+}
+
+::ng-deep .mt-md {
+    margin-top: 16px;
+}
+
+::ng-deep .ml-md {
+    margin-left: 16px;
+}
+
+::ng-deep .mr-md {
+    margin-right: 16px;
+}
+
+::ng-deep .mw-md {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+::ng-deep .mw-sm {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+::ng-deep .mw-xs {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+::ng-deep .mw-lg {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+::ng-deep .m-none {
+    margin: 0;
+}
+
+/*
+    Paddings.
+*/
+
+::ng-deep .p-xs {
+    padding: 4px;
+}
+
+::ng-deep .p-sm {
+    padding: 8px;
+}
+
+::ng-deep .pb-sm {
+    padding-bottom: 8px;
+}
+
+::ng-deep .pt-sm {
+    padding-top: 8px;
+}
+
+::ng-deep .pl-sm {
+    padding-left: 8px;
+}
+
+::ng-deep .pr-sm {
+    padding-right: 8px;
+}
+
+::ng-deep .pb-xs {
+    padding-bottom: 4px;
+}
+
+::ng-deep .pt-xs {
+    padding-top: 4px;
+}
+
+::ng-deep .pl-xs {
+    padding-left: 4px;
+}
+
+::ng-deep .pr-xs {
+    padding-right: 4px;
+}
+
+::ng-deep .p-md {
+    padding: 16px;
+}
+
+::ng-deep .pb-md {
+    padding-bottom: 16px;
+}
+
+::ng-deep .pt-md {
+    padding-top: 16px;
+}
+
+::ng-deep .pl-md {
+    padding-left: 16px;
+}
+
+::ng-deep .pr-md {
+    padding-right: 16px;
+}
+
+::ng-deep .pw-md {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+::ng-deep .pw-sm {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+::ng-deep .pw-xs {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+::ng-deep .pw-lg {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+::ng-deep .p-none {
+    padding: 0;
+}
+
+::ng-deep .pt-0 {
+    padding-top: 0;
+}
+
+
+/*
+    Center-align  elements, both vertically and horizontally
+*/
+::ng-deep .center-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+// Vega-Lite Tooltip Z-index
+::ng-deep #vg-tooltip-element {
+    z-index: 2000;
+}

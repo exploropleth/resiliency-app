@@ -1,0 +1,42 @@
+::ng-deep #visContainer {
+  width: 100%;
+}
+
+::ng-deep hr {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+::ng-deep .hovered {
+  stroke-width: 2px !important;
+  stroke: black !important;
+}
+
+::ng-deep hr {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+::ng-deep div.tooltip {
+  position: absolute;
+  max-width: 250px;
+  padding: 8px;
+  font: 14px sans-serif;
+  background: white;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  pointer-events: none;
+  // opacity: 1 !important; // TODO
+}
+
+::ng-deep .colorSwatch {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 4px;
+  border: 1px solid black;
+}
+
+::ng-deep .selectedColorSwatch {
+  border: 3px solid black;
+}
