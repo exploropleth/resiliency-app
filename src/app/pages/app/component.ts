@@ -48,7 +48,7 @@ export class MainComponent implements OnInit {
       // Set Data
       datasets: DATASETS,
       // dataset: DATASETS[0]["geographies"][0]["features"][1], // INDIA > FERTILITY RATE
-      dataset: DATASETS[1]["geographies"][0]["features"][0], // USA > Life Expectancy
+      dataset: DATASETS[1]["geographies"][0]["features"][1], // USA > Life Expectancy
       // Processed Data
       baseDataFeatureCollection: [],
       featureData: {},
@@ -606,8 +606,12 @@ export class MainComponent implements OnInit {
         let geoTopoData: any = dataFromPromise[0];
         let data = dataFromPromise[1];
 
-        // Reset PrimaryKeys
+        // Reset PrimaryKeys, Data-related datastructures
         context.visModel['primaryKeys'] = [];
+        context.visModel['featureData'] = {};
+        context.visModel['featureDataNaNs'] = {};
+        context.visModel['featureRawDataWithNaNs'] = {};
+        context.visModel['featureRawDataWithNaNsJSON'] = [];
 
         // Set baseData feature collection to be able to `fit` the resultant projected map within the view bounds
         context.visModel['baseDataFeatureCollection'] = topojson.feature(geoTopoData, geoTopoData.objects[context.visModel["dataset"]["topoFeatureRootKey"]])["features"];
