@@ -17,9 +17,9 @@ Resiliency is an ensemble technique that considers how frequently a geographic e
 
 
 ## Build and Deployment
-7. `ng build --configuration production --build-optimizer` - build the app and push the output into [angular.json](angular.json) > `outputPath` directory (default value = ["dist/"](dist/)).
+7. `ng build --configuration production --build-optimizer --output-hashing=all` - build the app and push the output into [angular.json](angular.json) > `outputPath` directory (default value = ["dist/"](dist/)).
 
-8. `ng build --configuration production --build-optimizer --baseHref=/resiliency-app/` - build the app for deploying at a public URL with /resiliency-app/ base prefix.
+8. `ng build --configuration production --build-optimizer --baseHref=/resiliency-app/ --output-hashing=all` - build the app for deploying at a public URL with /resiliency-app/ base prefix.
 
 
 ## Credits
