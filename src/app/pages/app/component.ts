@@ -48,7 +48,7 @@ export class MainComponent implements OnInit {
       // Set Data
       datasets: DATASETS,
       // dataset: DATASETS[0]["geographies"][0]["features"][1], // INDIA > FERTILITY RATE
-      dataset: DATASETS[1]["geographies"][0]["features"][1], // USA > Life Expectancy
+      dataset: DATASETS[1]["geographies"][0]["features"][0], // USA > Life Expectancy
       // Processed Data
       baseDataFeatureCollection: [],
       featureData: {},
