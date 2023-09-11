@@ -1,7 +1,7 @@
 let BASE_FEATURES = {
     "usa": {
         featureFile: "us-county-indicators.csv",
-        features: [ "Life Expectancy", "Adult Obesity Percentage", "Infant Mortality Rate", "Incarceration Rate", "Incarceration_Rate_1k", "HIV_Prevalence", "Motor Vehicle Death Rate", "Secondary Educational Attainment", "GINI Index (Income Inequality)", "Population Density", "Domestic In-Migrants 2010s", "Domestic In-Migrants 2010s (norm)", "Domestic Net Migrants 2010s", "Domestic Net Migrants 2010s (norm)",
+        features: [ "Life Expectancy (2021)", "Life Expectancy (2020)", "Adult Obesity Percentage", "Infant Mortality Rate", "Incarceration Rate", "Incarceration_Rate_1k", "HIV_Prevalence", "Motor Vehicle Death Rate", "Secondary Educational Attainment", "GINI Index (Income Inequality)", "Population Density", "Domestic In-Migrants 2010s", "Domestic In-Migrants 2010s (norm)", "Domestic Net Migrants 2010s", "Domestic Net Migrants 2010s (norm)",
         ],
         labelFeatures: ["State", "County"],
         primaryKey: "FIPS_Code",
