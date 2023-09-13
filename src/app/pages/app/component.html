@@ -152,6 +152,54 @@
                         </div>
                     </div>
                     <hr>
+                    <div class="form-group">
+                        <strong><i
+                                tooltip="Indicators that are relevant to Resiliency will be listed here."
+                                [options]="appConfig['tooltipOptions']" class="fa fa-magic"></i>&nbsp;Indicators
+                        </strong>
+                        <div class="mt-sm">
+                            <table class="table-sm w-100">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span
+                                                tooltip="This indicator, currently in beta, could potentially indicate how bouncy/stable a map is when we compute the Average Frequency of the Most Consistent Bin."
+                                                [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                                Average Frequency of the Most Consistent Bin
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <h5>{{visModel["averageFrequencyOfMostConsistentBin"]}}</h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span
+                                                tooltip="This indicator, currently in beta, shows the Max Frequency of the Most Consistent Bin."
+                                                [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                                Maximum Frequency of the Most Consistent Bin
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <h5>{{visModel["maxFrequencyOfMostConsistentBin"]}}</h5>
+                                        </td>
+                                    </tr>                                    
+                                    <tr>
+                                        <td>
+                                            <span
+                                                tooltip="This indicator, currently in beta, shows the Min Frequency of the Most Consistent Bin."
+                                                [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                                Minimum Frequency of the Most Consistent Bin
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <h5>{{visModel["minFrequencyOfMostConsistentBin"]}}</h5>
+                                        </td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </form>
             </div>
         </as-split-area>

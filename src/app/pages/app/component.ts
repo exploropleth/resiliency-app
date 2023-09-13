@@ -77,9 +77,9 @@ export class MainComponent implements OnInit {
       },
       binningMethodsForResiliency: [],
       specialDataClassificationTypes: {
-        [binningMethods.SPECIAL_MOST_FREQUENT_CLASS]: {
-          name: "Most Consistent Bin"
-        },
+        // [binningMethods.SPECIAL_MOST_FREQUENT_CLASS]: {
+        //   name: "Most Consistent Bin"
+        // },
         [binningMethods.SPECIAL_FREQUENCY_MOST_FREQUENT_CLASS]: {
           name: "Frequency of Most Consistent Bin"
         },
@@ -87,6 +87,9 @@ export class MainComponent implements OnInit {
           name: "Most Consistent Bin and its Frequency"
         }
       },
+      minFrequencyOfMostConsistentBin: null,
+      maxFrequencyOfMostConsistentBin: null,
+      averageFrequencyOfMostConsistentBin: null,
       binGuruObj: null,
       colorSchemes: COLOR_SCHEMES,
       colorScheme: COLOR_SCHEMES[3]["examples"][2], // purple-orange diverging
@@ -188,6 +191,13 @@ export class MainComponent implements OnInit {
     let context = this;
     let combinedJSON = [];
     let tooltips = [];
+
+    // Compute the average of the Frequency_of_Most_Frequent_Bin.
+    const arrayOfFrequencyOfBins:any[] = Array.from(Object.values(context.visModel["frequencyOfBins"])).filter(Boolean);
+    const sumOfFrequencyOfBins:any = arrayOfFrequencyOfBins.reduce((a, b) => {return (a + b) as any});
+    context.visModel["minFrequencyOfMostConsistentBin"] = Math.min(...arrayOfFrequencyOfBins);
+    context.visModel["maxFrequencyOfMostConsistentBin"] = Math.max(...arrayOfFrequencyOfBins);
+    context.visModel["averageFrequencyOfMostConsistentBin"]  = (sumOfFrequencyOfBins / arrayOfFrequencyOfBins.length).toFixed(2);
 
     // Prepare the data to be bound to the visualization
     Object.keys(context.visModel["frequencyOfBins"]).forEach(function (primaryKey, valIndex) {
