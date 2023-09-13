@@ -467,7 +467,10 @@ export class MainComponent implements OnInit {
               "labelFontSize": 12,
               "titleFontSize": 14
             }
-          }
+          },
+          "tooltip": [{"field": "bin_start", "type": "quantitative", "format": ".2f"},
+          {"field": "bin_end", "type": "quantitative", "format": ".2f"},
+          {"field": "count", "type": "quantitative"}]
         }
       }]
     }
