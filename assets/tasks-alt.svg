@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 -256 1800 1800"
+   id="svg4175"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   width="100%"
+   height="100%"
+   sodipodi:docname="tasks_font_awesome.svg">
+  <metadata
+     id="metadata4185">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4183" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview4181"
+     showgrid="false"
+     inkscape:zoom="0.093123438"
+     inkscape:cx="1599.2943"
+     inkscape:cy="1522.4241"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4175" />
+  <g
+     transform="matrix(1,0,0,-1,4.4480058,1354.1695)"
+     id="g4177">
+    <path
+       d="m 1024,128 h 640 V 256 H 1024 V 128 z M 640,640 H 1664 V 768 H 640 V 640 z m 640,512 h 384 v 128 H 1280 V 1152 z M 1792,320 V 64 Q 1792,38 1773,19 1754,0 1728,0 H 64 Q 38,0 19,19 0,38 0,64 v 256 q 0,26 19,45 19,19 45,19 h 1664 q 26,0 45,-19 19,-19 19,-45 z m 0,512 V 576 q 0,-26 -19,-45 -19,-19 -45,-19 H 64 Q 38,512 19,531 0,550 0,576 v 256 q 0,26 19,45 19,19 45,19 h 1664 q 26,0 45,-19 19,-19 19,-45 z m 0,512 v -256 q 0,-26 -19,-45 -19,-19 -45,-19 H 64 q -26,0 -45,19 -19,19 -19,45 v 256 q 0,26 19,45 19,19 45,19 h 1664 q 26,0 45,-19 19,-19 19,-45 z"
+       id="path4179"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
+  </g>
+</svg>
