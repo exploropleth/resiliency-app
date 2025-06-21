@@ -76,18 +76,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "resiliency-app:build"
+                      "buildTarget": "resiliency-app:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "resiliency-app:build:production"
+                          "buildTarget": "resiliency-app:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "resiliency-app:build"
+                      "buildTarget": "resiliency-app:build"
                     }
                 },
                 "test": {
