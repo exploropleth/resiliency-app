@@ -3,19 +3,13 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build  --aot --configuration production",
     "postinstall": "ng build --aot --configuration production"
   },
-  "main": "server.js",
-  "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
-    "@angular/common": "~13.1.0",
+    "@angular/common": "~13.1.3",
     "@angular/compiler": "~13.1.0",
     "@angular/core": "~13.1.0",
     "@angular/forms": "~13.1.0",
@@ -36,7 +30,6 @@
     "changedpi": "^1.0.4",
     "core-js": "^2.5.4",
     "d3": "^6.7.0",
-    "express": "^4.17.0",
     "html2canvas": "^1.4.1",
     "jquery": "^3.4.1",
     "ng2-tooltip-directive": "^2.10.3",
@@ -58,19 +51,8 @@
     "@angular/compiler-cli": "~13.1.0",
     "@angular/language-service": "~13.1.0",
     "@types/bootstrap": "^4.3.1",
-    "@types/jasmine": "~3.6.0",
-    "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "body-parser": "^1.19.1",
-    "codelyzer": "^6.0.0",
-    "jasmine-core": "~3.6.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~6.3.9",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.3",
     "typescript": "~4.5.4"
@@ -79,6 +61,6 @@
     "printWidth": 120
   },
   "engines": {
-    "node": "14.x"
+    "node": "20.x"
   }
 }

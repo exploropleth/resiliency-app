@@ -1,5 +1,6 @@
 # Resiliency App
-Resiliency is an ensemble technique that considers how frequently a geographic entity (e.g., county) falls in a particular bin across multiple comparable data binning methods.
+
+Data binning, or data classification, involves grouping quantitative data points into bins (or classes) to represent spatial patterns and show variation in choropleth maps. There are many methods for binning data (e.g., natural breaks, quantile) that may make the same data appear very different on a map. Some of these methods may be more or less appropriate for certain types of data distributions and map purposes. Thus, when designing a map, novice users may be overwhelmed by the number of choices for binning methods and experts may find comparing results from different binning methods challenging. We present resiliency, a new data binning method that assigns areal units to their most agreed-upon, consensus bin as it persists across multiple chosen binning methods. We show how this "smart average" can effectively communicate spatial patterns that are agreed-upon across binning methods. We also measure the variety of bins a single areal unit can be placed in under different binning methods showing fuzziness and uncertainty on a map. We implement resiliency and other binning methods via an open-source JavaScript library, BinGuru.
 
 ![Screenshot of the Resiliency App showing the output of the Resiliency binning method on Life Expectancy (years) data for U.S. counties.](screenshot.png)
 
@@ -17,14 +18,11 @@ Resiliency is an ensemble technique that considers how frequently a geographic e
 
 
 ## Build and Deployment
-7. `ng build --configuration production --build-optimizer --output-hashing=all` - build the app and push the output into [angular.json](angular.json) > `outputPath` directory (default value = ["dist/"](dist/)).
-
-8. `ng build --configuration production --build-optimizer --baseHref=/resiliency-app/ --output-hashing=all` - build the app for deploying at a public URL with /resiliency-app/ base prefix.
-
+7. GitHub Actions
 
 ## Credits
 Resiliency was created by
-<a target="_blank" href="http://narechania.com">Arpit Narechania</a>, <a href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a href="https://friendlycities.gatech.edu/">Clio Andris</a> of the <a target="_blank" href="https://vis.gatech.edu/">Georgia Tech Visualization Lab.</a> We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
+<a target="_blank" href="https://narechania.com">Arpit Narechania</a>, <a href="https://va.gatech.edu/endert/">Alex Endert</a>, and <a href="https://friendlycities.gatech.edu/">Clio Andris</a> of the <a target="_blank" href="https://vis.gatech.edu/">Georgia Tech Visualization Lab.</a> We thank the members of the <a target="_blank" href="http://vis.gatech.edu/">Georgia Tech Visualization Lab</a> for their support and constructive feedback.</p>
 
 
 ## Citations
@@ -43,8 +41,8 @@ Resiliency was created by
 ```
 
 ## License
-The software is available under the [MIT License](https://github.com/arpitnarechania/resiliency-app/blob/master/LICENSE).
+The software is available under the [MIT License](https://github.com/exploropleth/resiliency-app/blob/master/LICENSE).
 
 
 ## Contact
-If you have any questions, feel free to [open an issue](https://github.com/arpitnarechania/resiliency-app/issues/new/choose) or contact [Arpit Narechania](http://narechania.com).
+If you have any questions, feel free to [open an issue](https://github.com/exploropleth/resiliency-app/issues/new/choose) or contact [Arpit Narechania](https://narechania.com).

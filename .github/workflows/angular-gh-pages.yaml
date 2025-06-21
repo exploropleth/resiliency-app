@@ -1,0 +1,36 @@
+name: Build and Deploy App to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install --legacy-peer-deps
+
+    - name: Build Angular app
+      run: npm run build --configuration production --build-optimizer
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        build_configuration: production
+        base_href: /resiliency-app/
+        deploy_branch: gh-pages
+        angular_dist_build_folder: dist/
+    permissions:
+      contents: write
