@@ -30,7 +30,7 @@
     "d3": "^6.7.0",
     "jquery": "^3.4.1",
     "primeicons": "^6.0.1",
-    "primeng": "^18.0.6-lts",
+    "primeng": "^18.0.2",
     "rxjs": "~6.6.7",
     "seedrandom": "^3.0.1",
     "topojson-client": "^3.1.0",
