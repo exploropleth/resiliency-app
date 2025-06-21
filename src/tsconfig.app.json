@@ -7,8 +7,7 @@
   },
   "files": [
     "main.ts",
-    "polyfills.ts",
-    "global.d.ts"
+    "polyfills.ts"
   ],
   "include": [
     "src/**/*.d.ts"
