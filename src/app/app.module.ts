@@ -4,10 +4,10 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpErrorHandler } from "./http-error-handler.service";
 import { FormsModule } from "@angular/forms";
-import { TooltipModule } from 'ng2-tooltip-directive';
-import { ColorPickerModule } from 'ngx-color-picker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
+import { TooltipModule } from 'primeng/tooltip';
+import { ColorPickerModule } from 'primeng/colorpicker';
 
 // Local
 import { AppRoutingModule } from "./app-routing.module";
@@ -21,10 +21,10 @@ import { MainComponent } from "./pages/app/component";
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    TooltipModule,
-    ColorPickerModule,
     NgbModule,
-    CascadeSelectModule
+    CascadeSelectModule,
+    TooltipModule,
+    ColorPickerModule
   ],
   declarations: [
     AppComponent,

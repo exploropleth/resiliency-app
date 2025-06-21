@@ -1,10 +1,10 @@
-<div class="h-full w-100 container">
+<div class="h-full w-100 container-fluid">
     <div class="row">
         <div class="col-3">
             <div class="p-xs">
                 <h3 class="mb-0"
-                    tooltip="This is an ensemble technique that considers how frequently a geographic entity (e.g., county) falls in a particular bin across multiple comparable data binning methods."
-                    [options]="appConfig['tooltipOptions']">Resiliency App</h3>
+                    pTooltip="This is an ensemble technique that considers how frequently a geographic entity (e.g., county) falls in a particular bin across multiple comparable data binning methods."
+                    [escape]="false" showDelay="0">Resiliency App</h3>
                     <div>
                         <small><a target="_blank" href="https://github.com/arpitnarechania/binguru">Powered by BinGuru</a></small>
                     </div>
@@ -13,8 +13,8 @@
             <form>
                 <div class="form-group">
                     <strong><i
-                            tooltip="Configure datasets by selecting an existing one or uploading your own. Hover on the configuration name to know more"
-                            [options]="appConfig['tooltipOptions']" class="fa fa-database"></i>&nbsp;Dataset&nbsp;
+                            pTooltip="Configure datasets by selecting an existing one or uploading your own. Hover on the configuration name to know more"
+                            [escape]="false" showDelay="0" class="fa fa-database"></i>&nbsp;Dataset&nbsp;
                     </strong>
                     <p-cascadeSelect appendTo="body" [ngModelOptions]="{standalone: true}" [(ngModel)]="visModel['dataset']" (onChange)="updateDataset()"
                         [options]="visModel['datasets']" optionLabel="feature" optionGroupLabel="name"
@@ -50,14 +50,14 @@
                 <hr>
                 <div class="form-group">
                     <strong><img
-                            tooltip="Pick one or more of these binning methods to compare by overlaying their bin sizes and bin breaks; note that these methods all have a fixed number of bins to be comparable."
-                            [options]="appConfig['tooltipOptions']" [src]="'assets/tasks-alt.svg'" width='16'
+                            pTooltip="Pick one or more of these binning methods to compare by overlaying their bin sizes and bin breaks; note that these methods all have a fixed number of bins to be comparable."
+                            [escape]="false" showDelay="0" [src]="'assets/tasks-alt.svg'" width='16'
                             style="margin-top: -4px;" />&nbsp;Data Binning
                     </strong>
                     <div class="float-right">
                         <span
-                            tooltip="Only applicable for <b>Equal Interval</b>, <b>Quantile</b>, <b>Maximum Breaks</b>, <b>Natural Breaks</b>, <b>CK-Means</b>, and <b>Geometric Interval</b>"
-                            [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                            pTooltip="Only applicable for <b>Equal Interval</b>, <b>Quantile</b>, <b>Maximum Breaks</b>, <b>Natural Breaks</b>, <b>CK-Means</b>, and <b>Geometric Interval</b>"
+                            [escape]="false" showDelay="0" style="cursor: help;">
                             Bin Count
                         </span>
                         <input type="number" step="1" min="1" max="12"
@@ -82,8 +82,8 @@
                 <hr>
                 <div class="form-group">
                     <strong><i
-                            tooltip="Options to configure the color scheme for the choropleth maps. Hover on the configuration name to know more."
-                            [options]="appConfig['tooltipOptions']" class="fa fa-palette"></i>&nbsp;Color Scheme
+                            pTooltip="Options to configure the color scheme for the choropleth maps. Hover on the configuration name to know more."
+                            [escape]="false" showDelay="0" class="fa fa-palette"></i>&nbsp;Color Scheme
                     </strong>
                     <div class="mt-sm">
                         <table class="table-sm w-100">
@@ -91,8 +91,8 @@
                                 <tr>
                                     <td style="width: 35%">
                                         <span
-                                            tooltip="The base color scheme for valid (non NaN/null) values; optionally, reverse the scheme as per needs."
-                                            [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                            pTooltip="The base color scheme for valid (non NaN/null) values; optionally, reverse the scheme as per needs."
+                                            [escape]="false" showDelay="0" style="cursor: help;">
                                             Primary
                                         </span>
                                     </td>
@@ -127,23 +127,13 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 35%">
-                                        <span tooltip="The color to be used for invalid (NaN/null) values"
-                                            [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                        <span pTooltip="The color to be used for invalid (NaN/null) values"
+                                            [escape]="false" showDelay="0" style="cursor: help;">
                                             NaN/nulls
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" id="colorNullValues"
-                                                style="width: 16px; height: 16px;" [cpCancelButton]="true"
-                                                [cpOKButton]="true" [cpSaveClickOutside]="false"
-                                                [cpDisabled]="!visModel['showInvalidValues']"
-                                                (colorPickerSelect)="updateAllVis()" [cpPosition]="'top'"
-                                                [style.background]="visModel['invalidValuesColor']"
-                                                [cpAlphaChannel]="'always'" [cpOutputFormat]="'auto'"
-                                                [cpEyeDropper]="true"
-                                                [(colorPicker)]="visModel['invalidValuesColor']" />
-                                        </div>
+                                        <p-colorPicker [ngModelOptions]="{standalone: true}" [ngModel]="visModel['invalidValuesColor']" (ngModelChange)="visModel['invalidValuesColor'] = $event; updateAllVis()" [disabled]="visModel['showInvalidValues'] === 'off'"></p-colorPicker>
                                     </td>
                                 </tr>
                             </tbody>
@@ -153,8 +143,8 @@
                 <hr>
                 <div class="form-group">
                     <strong><i
-                            tooltip="Indicators that are relevant to Resiliency will be listed here."
-                            [options]="appConfig['tooltipOptions']" class="fa fa-magic"></i>&nbsp;Indicators
+                            pTooltip="Indicators that are relevant to Resiliency will be listed here."
+                            [escape]="false" showDelay="0" class="fa fa-magic"></i>&nbsp;Indicators
                     </strong>
                     <div class="mt-sm">
                         <table class="table-sm w-100">
@@ -162,8 +152,8 @@
                                 <tr>
                                     <td>
                                         <span
-                                            tooltip="This indicator, currently in beta, could potentially indicate how bouncy/stable a map is when we compute the Average Frequency of the Most Consistent Bin."
-                                            [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                            pTooltip="This indicator, currently in beta, could potentially indicate how bouncy/stable a map is when we compute the Average Frequency of the Most Consistent Bin."
+                                            [escape]="false" showDelay="0" style="cursor: help;">
                                             Average Frequency of the Most Consistent Bin
                                         </span>
                                     </td>
@@ -174,8 +164,8 @@
                                 <tr>
                                     <td>
                                         <span
-                                            tooltip="This indicator, currently in beta, shows the Max Frequency of the Most Consistent Bin."
-                                            [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                            pTooltip="This indicator, currently in beta, shows the Max Frequency of the Most Consistent Bin."
+                                            [escape]="false" showDelay="0" style="cursor: help;">
                                             Maximum Frequency of the Most Consistent Bin
                                         </span>
                                     </td>
@@ -186,8 +176,8 @@
                                 <tr>
                                     <td>
                                         <span
-                                            tooltip="This indicator, currently in beta, shows the Min Frequency of the Most Consistent Bin."
-                                            [options]="appConfig['tooltipOptions']" style="cursor: help;">
+                                            pTooltip="This indicator, currently in beta, shows the Min Frequency of the Most Consistent Bin."
+                                            [escape]="false" showDelay="0" style="cursor: help;">
                                             Minimum Frequency of the Most Consistent Bin
                                         </span>
                                     </td>

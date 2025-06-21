@@ -55,7 +55,7 @@ export class MainComponent implements OnInit {
       histogramBins: [],
       binMaxCount: 0,
       showInvalidValues: "on", // on | off
-      invalidValuesColor: "grey",
+      invalidValuesColor: "#555555",
       binCount: 6,
       frequencyOfBins: {},
       frequentBins: {},
