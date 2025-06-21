@@ -129,7 +129,6 @@
             }
         }
     },
-    "defaultProject": "resiliency-app",
     "schematics": {
         "@schematics/angular:component": {
             "style": "scss"
