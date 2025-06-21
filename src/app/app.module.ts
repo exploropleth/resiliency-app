@@ -1,5 +1,4 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from "@angular/core";
 import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { HttpErrorHandler } from "./http-error-handler.service";
@@ -8,6 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { TooltipModule } from 'primeng/tooltip';
 import { ColorPickerModule } from 'primeng/colorpicker';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 
 // Local
 import { AppRoutingModule } from "./app-routing.module";
@@ -19,7 +21,6 @@ import { MainComponent } from "./pages/app/component";
         MainComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
-        BrowserAnimationsModule,
         FormsModule,
         AppRoutingModule,
         NgbModule,
@@ -28,6 +29,12 @@ import { MainComponent } from "./pages/app/component";
         ColorPickerModule], providers: [
         HttpErrorHandler,
         MainComponent,
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        })
     ] })
 export class AppModule {}

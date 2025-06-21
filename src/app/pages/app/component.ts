@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import * as jQuery from 'jquery';
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
@@ -17,6 +18,7 @@ import * as binningMethods from "./binningMethods";
   templateUrl: "./component.html",
   providers: [],
   styleUrls: ["./component.scss"],
+  standalone: false
 })
 export class MainComponent implements OnInit {
 
@@ -641,6 +643,8 @@ export class MainComponent implements OnInit {
 
     // Data
     let data = context.visModel['featureRawDataWithNaNs'][context.visModel["dataset"]["feature"]];
+
+    if(!data) return;
 
     // BinGuru data object.
     let binCount = context.visModel['binCount'];
