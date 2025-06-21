@@ -4,7 +4,6 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpErrorHandler } from "./http-error-handler.service";
 import { FormsModule } from "@angular/forms";
-import { AngularSplitModule } from 'angular-split';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,7 +23,6 @@ import { MainComponent } from "./pages/app/component";
     AppRoutingModule,
     TooltipModule,
     ColorPickerModule,
-    AngularSplitModule.forRoot(),
     NgbModule,
     CascadeSelectModule
   ],

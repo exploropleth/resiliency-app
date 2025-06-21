@@ -1,10 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
-import html2canvas from 'html2canvas';
 import * as jQuery from 'jquery';
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
-import * as changedpi from 'changedpi';
 import { BinGuru } from "binguru";
 import vegaEmbed, { Config } from "vega-embed";
 
@@ -103,37 +100,6 @@ export class MainComponent implements OnInit {
   getColorScheme() {
     let context = this;
     return context.visModel['colorScheme']["code"];
-  }
-
-  /*
- * Use html2canvas to download the div as an image.
- */
-  downloadView(tab, elementRef, size = "medium", event) {
-
-    let scale, dpi;
-    switch (size) {
-      case "small":
-        scale = 1;
-        dpi = 72;
-        break;
-      case "medium":
-        scale = 5;
-        dpi = 150;
-        break;
-      case "large":
-        scale = 10;
-        dpi = 300;
-        break;
-    }
-
-    html2canvas($(elementRef)[0] as HTMLElement, { scale: scale }).then(canvas => {
-      // this.downloadImageCanvas.nativeElement.src = canvas.toDataURL();
-      const dataUrl = canvas.toDataURL('image/png');
-      var customResDataUrl = changedpi.changeDpiDataUrl(dataUrl, dpi);
-      this.downloadLink.nativeElement.href = customResDataUrl;
-      this.downloadLink.nativeElement.download = size + '-export.png';
-      this.downloadLink.nativeElement.click();
-    });
   }
 
 
