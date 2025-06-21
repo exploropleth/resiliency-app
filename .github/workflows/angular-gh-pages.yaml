@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
@@ -22,15 +24,11 @@ jobs:
       run: npm install --legacy-peer-deps
 
     - name: Build Angular app
-      run: npm run build --configuration production --build-optimizer
+      run: npm run build -- --configuration production --base-href /resiliency-app/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_access_token: ${{ secrets.GITHUB_TOKEN }}
-        build_configuration: production
-        base_href: /resiliency-app/
-        deploy_branch: gh-pages
-        angular_dist_build_folder: dist/
-    permissions:
-      contents: write
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist/
+        publish_branch: gh-pages
