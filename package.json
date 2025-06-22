@@ -1,6 +1,6 @@
 {
   "name": "resiliency-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -57,6 +57,6 @@
     "printWidth": 120
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=18.13.0"
   }
 }
