@@ -333,7 +333,7 @@ export class MainComponent implements OnInit {
     let context = this;
 
     // VIS Size
-    let width = context.resiliencyVisContainer.nativeElement.parentNode.offsetWidth - 10 - 30 - 60; // adjustments for spacing
+    let width = context.resiliencyVisContainer.nativeElement.parentNode.offsetWidth - 10 - 30 - 90; // adjustments for spacing
     let height = width * 0.66;
 
     let obj2Concat = {

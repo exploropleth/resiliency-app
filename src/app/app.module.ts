@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { TooltipModule } from 'primeng/tooltip';
 import { ColorPickerModule } from 'primeng/colorpicker';
+import { SplitterModule } from 'primeng/splitter';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -20,13 +21,16 @@ import { MainComponent } from "./pages/app/component";
         AppComponent,
         MainComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [BrowserModule,
         FormsModule,
         AppRoutingModule,
         NgbModule,
         CascadeSelectModule,
         TooltipModule,
-        ColorPickerModule], providers: [
+        ColorPickerModule,
+        SplitterModule], 
+    providers: [
         HttpErrorHandler,
         MainComponent,
         provideHttpClient(withInterceptorsFromDi()),
