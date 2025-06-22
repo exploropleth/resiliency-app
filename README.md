@@ -7,18 +7,17 @@ Data binning, or data classification, involves grouping quantitative data points
 ## Setup
 0. Open the command line/terminal on your machine and navigate to this project's top-level directory (i.e. where this file is).
 1. Download and install node, npm from https://nodejs.org/en/download/. We developed and tested the app on {Node, NPM}: {v20.16.0, 10.9.2}. Optionally, use the <a href="https://github.com/nvm-sh/nvm" target="_blank">nvm (Node Version Manager)</a> to quickly install and use different versions of node via the command line.
-2. `npm install -g @angular/cli@19` to install the desired angular-cli used to run ng-* commands.
-3. `npm install` - installs required libraries from package.json. 
+2. `npm install` - installs required libraries from package.json. 
 
 
 ## Run
-4. `ng serve` - compile and serve the application locally
-5. Open the browser at http://localhost:4200
-6. Enjoy!
+3. `ng serve` - compile and serve the application locally
+4. Open the browser at http://localhost:4200
+5. Enjoy!
 
 
 ## Build and Deployment
-7. GitHub Actions
+6. GitHub Actions
 
 ## Credits
 Resiliency was created by
