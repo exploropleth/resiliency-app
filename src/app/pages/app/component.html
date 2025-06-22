@@ -1,212 +1,220 @@
-<p-splitter [panelSizes]="[30, 70]" [style]="{height:'100vh'}" styleClass="h-100">
-    <ng-template #panel>
-        <div class="p-sm">
-            <h3 class="mb-0"
-                pTooltip="This is an ensemble technique that considers how frequently a geographic entity (e.g., county) falls in a particular bin across multiple comparable data binning methods."
-                [escape]="false" showDelay="0">Resiliency App</h3>
+<div class="h-full w-100">
+    <p-splitter [panelSizes]="[30, 70]" [style]="{height:'100vh'}" styleClass="h-100">
+        <ng-template #panel>
             <div>
-                <small><a target="_blank" href="https://github.com/exploropleth/binguru">Powered by BinGuru</a></small>
-            </div>
-            <hr>
-            <form>
-                <div class="form-group">
+                <div class="p-md">
+                    <h3 class="mb-0"
+                    pTooltip="This is an ensemble technique that considers how frequently a geographic entity (e.g., county) falls in a particular bin across multiple comparable data binning methods."
+                    [escape]="false" showDelay="0">Resiliency App</h3>
                     <div>
-                        <i [escape]="false" showDelay="0" class="fa fa-database"></i>
-                        &nbsp;
-                        <strong>
-                            <u pTooltip="Configure datasets by selecting an existing one or uploading your own. Hover on the configuration name to know more" [escape]="false" showDelay="0" style="cursor: help;">Dataset</u>
-                        </strong>
-                        &nbsp;
-                        <p-cascadeSelect appendTo="body" [ngModelOptions]="{standalone: true}"
-                            [(ngModel)]="visModel['dataset']" (onChange)="updateDataset()" [options]="visModel['datasets']"
-                            optionLabel="feature" optionGroupLabel="name"
-                            [optionGroupChildren]="['geographies','features']">
-                        </p-cascadeSelect>
+                        <small>Powered by <a target="_blank" href="https://github.com/exploropleth/binguru">BinGuru</a></small>
+                        &nbsp;|&nbsp;
+                        <small><a target="_blank" href="https://narechania.com/docs/publications/resiliency_giscience_2023.pdf">Research Paper (GIScience'23)</a></small>
                     </div>
-                    <div class="mt-sm text-center">
-                        <small class="text-muted">
-                            {{getDataShape("total")}} values; {{getDataShape("invalid")}}
-                            ({{getDataShape("invalidpct")}}%) NaN/nulls (
-                            <div class="form-check form-check-inline mr-0">
-                                <input class="form-check-input" type="radio" name="showInvalidValuesMode"
-                                    id="showInvalidValuesOn" [(ngModel)]="visModel['showInvalidValues']" value="on"
-                                    (ngModelChange)="updateAllVis()" [ngModelOptions]="{standalone: true}">
-                                <label class="form-check-label" for="showInvalidValuesOn">
-                                    on
-                                </label>
+                </div>
+                <hr>
+                <div class="overflow p-md" style="height: calc(100vh - 100px)">
+                    <form>
+                        <div class="form-group">
+                            <div>
+                                <i [escape]="false" showDelay="0" class="fa fa-database"></i>
+                                &nbsp;
+                                <strong>
+                                    <u pTooltip="Configure datasets by selecting an existing one or uploading your own. Hover on the configuration name to know more" [escape]="false" showDelay="0" style="cursor: help;">Dataset</u>
+                                </strong>
+                                &nbsp;
+                                <p-cascadeSelect appendTo="body" [ngModelOptions]="{standalone: true}"
+                                    [(ngModel)]="visModel['dataset']" (onChange)="updateDataset()" [options]="visModel['datasets']"
+                                    optionLabel="feature" optionGroupLabel="name"
+                                    [optionGroupChildren]="['geographies','features']">
+                                </p-cascadeSelect>
                             </div>
-                            &nbsp;
-                            <div class="form-check form-check-inline mr-0">
-                                <input class="form-check-input" type="radio" name="showInvalidValuesMode"
-                                    id="showInvalidValuesOff" [(ngModel)]="visModel['showInvalidValues']" value="off"
-                                    (ngModelChange)="updateAllVis()" [ngModelOptions]="{standalone: true}">
-                                <label class="form-check-label" for="showInvalidValuesOff">
-                                    off
-                                </label>
-                            </div>)
-                        </small>
-                    </div>
-                    <div #attrDistributionVisContainer id="attrDistributionVisContainer" class="w-100 mt-sm"></div>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <img [src]="'assets/tasks-alt.svg'" width='16'
-                            style="margin-top: -4px;" />
-                    &nbsp;
-                    <strong>
-                        <u pTooltip="Pick one or more of these binning methods to compare by overlaying their bin sizes and bin breaks; note that these methods all have a fixed number of bins to be comparable."
-                            [escape]="false" showDelay="0" style="cursor: help;">Data Binning</u>
-                    </strong>
-                    <div class="float-right">
-                        <span
-                            pTooltip="Only applicable for <b>Equal Interval</b>, <b>Quantile</b>, <b>Maximum Breaks</b>, <b>Natural Breaks</b>, <b>CK-Means</b>, and <b>Geometric Interval</b>"
-                            [escape]="false" showDelay="0" style="cursor: help;">
-                            <u>Bin Count</u>
-                        </span>
-                        &nbsp;
-                        <input type="number" step="1" min="1" max="12" (change)="updateAllVis();"
-                            [(ngModel)]="visModel['binCount']" name="binCount" id="binCount" />
-                    </div>
-                    <div style="clear:both"></div>
-                    <div class="mt-sm">
-                        <div class="form-check"
-                            *ngFor="let bm of objectKeys(visModel['validBinningMethodsForResiliency']);">
-                            <input name="'special-comparison-checkbox-' + {{bm}}" class="form-check-input"
-                                type="checkbox" [disabled]="isCompatibleBinningMethod(bm)"
-                                [(ngModel)]="visModel['validBinningMethodsForResiliency'][bm]['selected']"
-                                (ngModelChange)="updateAllVis()" [ngModelOptions]="{standalone: true}"
-                                id="'special-comparison-checkbox-' + {{bm}}">
-                            <label class="form-check-label"
-                                for="'special-comparison-checkbox-' + {{bm}}">{{visModel['binningMethods'][bm]['name']}}</label>
+                            <div class="mt-sm text-center">
+                                <small class="text-muted">
+                                    {{getDataShape("total")}} values; {{getDataShape("invalid")}}
+                                    ({{getDataShape("invalidpct")}}%) NaN/nulls (
+                                    <div class="form-check form-check-inline mr-0">
+                                        <input class="form-check-input" type="radio" name="showInvalidValuesMode"
+                                            id="showInvalidValuesOn" [(ngModel)]="visModel['showInvalidValues']" value="on"
+                                            (ngModelChange)="updateAllVis()" [ngModelOptions]="{standalone: true}">
+                                        <label class="form-check-label" for="showInvalidValuesOn">
+                                            on
+                                        </label>
+                                    </div>
+                                    &nbsp;
+                                    <div class="form-check form-check-inline mr-0">
+                                        <input class="form-check-input" type="radio" name="showInvalidValuesMode"
+                                            id="showInvalidValuesOff" [(ngModel)]="visModel['showInvalidValues']" value="off"
+                                            (ngModelChange)="updateAllVis()" [ngModelOptions]="{standalone: true}">
+                                        <label class="form-check-label" for="showInvalidValuesOff">
+                                            off
+                                        </label>
+                                    </div>)
+                                </small>
+                            </div>
+                            <div #attrDistributionVisContainer id="attrDistributionVisContainer" class="w-100 mt-sm"></div>
                         </div>
-                    </div>
+                        <hr>
+                        <div class="form-group">
+                            <img [src]="'assets/tasks-alt.svg'" width='16'
+                                    style="margin-top: -4px;" />
+                            &nbsp;
+                            <strong>
+                                <u pTooltip="Pick one or more of these binning methods to compare by overlaying their bin sizes and bin breaks; note that these methods all have a fixed number of bins to be comparable."
+                                    [escape]="false" showDelay="0" style="cursor: help;">Data Binning</u>
+                            </strong>
+                            <div class="float-right">
+                                <span
+                                    pTooltip="Only applicable for <b>Equal Interval</b>, <b>Quantile</b>, <b>Maximum Breaks</b>, <b>Natural Breaks</b>, <b>CK-Means</b>, and <b>Geometric Interval</b>"
+                                    [escape]="false" showDelay="0" style="cursor: help;">
+                                    <u>Bin Count</u>
+                                </span>
+                                &nbsp;
+                                <input type="number" step="1" min="1" max="12" (change)="updateAllVis();"
+                                    [(ngModel)]="visModel['binCount']" name="binCount" id="binCount" />
+                            </div>
+                            <div style="clear:both"></div>
+                            <div class="mt-sm">
+                                <div class="form-check"
+                                    *ngFor="let bm of objectKeys(visModel['validBinningMethodsForResiliency']);">
+                                    <input name="'special-comparison-checkbox-' + {{bm}}" class="form-check-input"
+                                        type="checkbox" [disabled]="isCompatibleBinningMethod(bm)"
+                                        [(ngModel)]="visModel['validBinningMethodsForResiliency'][bm]['selected']"
+                                        (ngModelChange)="updateAllVis()" [ngModelOptions]="{standalone: true}"
+                                        id="'special-comparison-checkbox-' + {{bm}}">
+                                    <label class="form-check-label"
+                                        for="'special-comparison-checkbox-' + {{bm}}">{{visModel['binningMethods'][bm]['name']}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div>
+                                <i class="fa fa-palette"></i>
+                                &nbsp;
+                                <strong>
+                                    <u pTooltip="Options to configure the color scheme for the choropleth maps. Hover on the configuration name to know more." [escape]="false" showDelay="0" style="cursor: help;">Color Scheme</u>
+                                </strong>    
+                            </div>
+                            <div class="mt-sm">
+                                <table class="table-sm w-100">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 35%">
+                                                <span
+                                                    pTooltip="The base color scheme for valid (non NaN/null) values; optionally, reverse the scheme as per needs."
+                                                    [escape]="false" showDelay="0" style="cursor: help;">
+                                                    Primary
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <p-cascadeSelect appendTo="body" [ngModelOptions]="{standalone: true}"
+                                                    (onChange)="updateAllVis()" [(ngModel)]="visModel['colorScheme']"
+                                                    [options]="visModel['colorSchemes']" optionLabel="sname"
+                                                    optionGroupLabel="name" [optionGroupChildren]="['examples']">
+                                                    <ng-template pTemplate="option" let-option>
+                                                        <table>
+                                                            <tr>
+                                                                <td class="p-xs">
+                                                                    <img height="20" width="150" *ngIf="option.sname"
+                                                                        [src]="'assets/colorSchemes/' + option.file + '.png'" />
+                                                                </td>
+                                                                <td class="p-xs">
+                                                                    <span>{{option.sname || option.name}}</span>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="value" let-option>
+                                                        <!-- <div *ngIf="option">{{objectKeys(option)}}</div> -->
+                                                        <div *ngIf="option">
+                                                            <img height="15" width="40"
+                                                                [src]="'assets/colorSchemes/' + option.file + '.png'" />&nbsp;&nbsp;
+                                                            <span>{{option.sname}}</span>
+                                                        </div>
+                                                    </ng-template>
+                                                </p-cascadeSelect>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 35%">
+                                                <span pTooltip="The color to be used for invalid (NaN/null) values"
+                                                    [escape]="false" showDelay="0" style="cursor: help;">
+                                                    NaN/nulls
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <p-colorPicker [ngModelOptions]="{standalone: true}"
+                                                    [ngModel]="visModel['invalidValuesColor']"
+                                                    (ngModelChange)="visModel['invalidValuesColor'] = $event; updateAllVis()"
+                                                    [disabled]="visModel['showInvalidValues'] === 'off'"></p-colorPicker>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div>
+                                <i class="fa fa-magic"></i>
+                                &nbsp;
+                                <strong>
+                                    <u pTooltip="Indicators that are relevant to Resiliency will be listed here."
+                                    [escape]="false" showDelay="0" style="cursor: help;">Indicators</u>    
+                                </strong>
+                            </div>
+                            <div class="mt-sm">
+                                <table class="table-sm w-100">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <u pTooltip="This indicator, currently in beta, could potentially indicate how bouncy/stable a map is when we compute the Average Frequency of the Most Consistent Bin."
+                                                    [escape]="false" showDelay="0" style="cursor: help;">
+                                                    Average Frequency of the Most Consistent Bin
+                                                </u>
+                                            </td>
+                                            <td>
+                                                <h5>{{visModel["averageFrequencyOfMostConsistentBin"]}}</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <u pTooltip="This indicator, currently in beta, shows the Max Frequency of the Most Consistent Bin."
+                                                    [escape]="false" showDelay="0" style="cursor: help;">
+                                                    Maximum Frequency of the Most Consistent Bin
+                                                </u>
+                                            </td>
+                                            <td>
+                                                <h5>{{visModel["maxFrequencyOfMostConsistentBin"]}}</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <u pTooltip="This indicator, currently in beta, shows the Min Frequency of the Most Consistent Bin."
+                                                    [escape]="false" showDelay="0" style="cursor: help;">
+                                                    Minimum Frequency of the Most Consistent Bin
+                                                </u>
+                                            </td>
+                                            <td>
+                                                <h5>{{visModel["minFrequencyOfMostConsistentBin"]}}</h5>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+            </div>
+        </ng-template>
+        <ng-template #panel>
+            <div class="p-sm w-100 overflow">
+                <div #resiliencyVisContainer id="resiliencyVisContainer" class="text-center"></div>
                 <hr>
-                <div class="form-group">
-                    <div>
-                        <i class="fa fa-palette"></i>
-                        &nbsp;
-                        <strong>
-                            <u pTooltip="Options to configure the color scheme for the choropleth maps. Hover on the configuration name to know more." [escape]="false" showDelay="0" style="cursor: help;">Color Scheme</u>
-                        </strong>    
-                    </div>
-                    <div class="mt-sm">
-                        <table class="table-sm w-100">
-                            <tbody>
-                                <tr>
-                                    <td style="width: 35%">
-                                        <span
-                                            pTooltip="The base color scheme for valid (non NaN/null) values; optionally, reverse the scheme as per needs."
-                                            [escape]="false" showDelay="0" style="cursor: help;">
-                                            Primary
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <p-cascadeSelect appendTo="body" [ngModelOptions]="{standalone: true}"
-                                            (onChange)="updateAllVis()" [(ngModel)]="visModel['colorScheme']"
-                                            [options]="visModel['colorSchemes']" optionLabel="sname"
-                                            optionGroupLabel="name" [optionGroupChildren]="['examples']">
-                                            <ng-template pTemplate="option" let-option>
-                                                <table>
-                                                    <tr>
-                                                        <td class="p-xs">
-                                                            <img height="20" width="150" *ngIf="option.sname"
-                                                                [src]="'assets/colorSchemes/' + option.file + '.png'" />
-                                                        </td>
-                                                        <td class="p-xs">
-                                                            <span>{{option.sname || option.name}}</span>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </ng-template>
-                                            <ng-template pTemplate="value" let-option>
-                                                <!-- <div *ngIf="option">{{objectKeys(option)}}</div> -->
-                                                <div *ngIf="option">
-                                                    <img height="15" width="40"
-                                                        [src]="'assets/colorSchemes/' + option.file + '.png'" />&nbsp;&nbsp;
-                                                    <span>{{option.sname}}</span>
-                                                </div>
-                                            </ng-template>
-                                        </p-cascadeSelect>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 35%">
-                                        <span pTooltip="The color to be used for invalid (NaN/null) values"
-                                            [escape]="false" showDelay="0" style="cursor: help;">
-                                            NaN/nulls
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <p-colorPicker [ngModelOptions]="{standalone: true}"
-                                            [ngModel]="visModel['invalidValuesColor']"
-                                            (ngModelChange)="visModel['invalidValuesColor'] = $event; updateAllVis()"
-                                            [disabled]="visModel['showInvalidValues'] === 'off'"></p-colorPicker>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <div>
-                        <i class="fa fa-magic"></i>
-                        &nbsp;
-                        <strong>
-                            <u pTooltip="Indicators that are relevant to Resiliency will be listed here."
-                            [escape]="false" showDelay="0" style="cursor: help;">Indicators</u>    
-                        </strong>
-                    </div>
-                    <div class="mt-sm">
-                        <table class="table-sm w-100">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <u pTooltip="This indicator, currently in beta, could potentially indicate how bouncy/stable a map is when we compute the Average Frequency of the Most Consistent Bin."
-                                            [escape]="false" showDelay="0" style="cursor: help;">
-                                            Average Frequency of the Most Consistent Bin
-                                        </u>
-                                    </td>
-                                    <td>
-                                        <h5>{{visModel["averageFrequencyOfMostConsistentBin"]}}</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <u pTooltip="This indicator, currently in beta, shows the Max Frequency of the Most Consistent Bin."
-                                            [escape]="false" showDelay="0" style="cursor: help;">
-                                            Maximum Frequency of the Most Consistent Bin
-                                        </u>
-                                    </td>
-                                    <td>
-                                        <h5>{{visModel["maxFrequencyOfMostConsistentBin"]}}</h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <u pTooltip="This indicator, currently in beta, shows the Min Frequency of the Most Consistent Bin."
-                                            [escape]="false" showDelay="0" style="cursor: help;">
-                                            Minimum Frequency of the Most Consistent Bin
-                                        </u>
-                                    </td>
-                                    <td>
-                                        <h5>{{visModel["minFrequencyOfMostConsistentBin"]}}</h5>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </ng-template>
-    <ng-template #panel>
-        <div class="p-sm" style="width: 100%;">
-            <div #resiliencyVisContainer id="resiliencyVisContainer" class="text-center"></div>
-            <hr>
-            <div #compareBinFrequencyVisContainer id="compareBinFrequencyVisContainer" class="text-center">
-            </div>    
-        </div>
-    </ng-template>
-</p-splitter>
+                <div #compareBinFrequencyVisContainer id="compareBinFrequencyVisContainer" class="text-center">
+                </div>    
+            </div>
+        </ng-template>
+    </p-splitter>
+</div>
